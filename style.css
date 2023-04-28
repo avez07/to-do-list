@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.headind{
+    height: 40vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notes-table{
+    width: 100%;
+    border: 1.7px solid black;
+    border-collapse: collapse;
+}
+table ,th ,td{
+    border: 1.7px solid black;
+    padding-left: 20px;
+}
+.content-t{
+    border: 1px solid rgb(191, 185, 185);
+   min-height: 70vh;
+   margin: 0 20px 50px;
+   box-shadow: -6px -6px 20px #e9e6e6d5;
+   padding: 20px;
+   border-radius: 4px;
+   position: relative;
+  }
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+
+  .pagination {
+    position: absolute;
+    bottom: -147px;
+    right: 22px;
+    
+}
+.notes{
+    display: flex;
+    justify-content: center;
+}
+.text-note{
+    height: 50vh;
+    width: 97vw;
+    resize: none;
+    outline: none !important;
+}
+.add-note{
+ margin: 20px;
+}
