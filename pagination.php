@@ -37,7 +37,9 @@
 
     }
 
-<script>
+
+
+
     function alert_msg() {
         if (window.confirm("Are You Sure , You Want To `DELETE` This Record")) {
             alert("After `DELETE` You Cannot Undo");
