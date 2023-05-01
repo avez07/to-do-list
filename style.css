@@ -18,6 +18,17 @@
 table ,th ,td{
     border: 1.7px solid black;
     padding-left: 20px;
+   
+}
+th , td{
+  caret-color: transparent;
+  text-align: center;
+}
+
+a{
+  color: black !important;
+  text-decoration: none;
+  cursor: pointer;
 }
 .content-t{
     border: 1px solid rgb(191, 185, 185);
@@ -28,10 +39,32 @@ table ,th ,td{
    border-radius: 4px;
    position: relative;
   }
+  .links{
+      cursor: pointer;
+  }
   .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
   }
+  .date{
+    border-left: none !important;
+    color: red;
+    width: 10%;
+  }
+  .task{
+    border-right: none !important;
+   
+  }
+  #task{
+    overflow-wrap: break-word;
+  }
+  .task-ellipsis {
+    max-width: 187px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
   
   @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)} 
@@ -45,7 +78,7 @@ table ,th ,td{
 
   .pagination {
     position: absolute;
-    bottom: -147px;
+    bottom: 0;
     right: 22px;
     
 }

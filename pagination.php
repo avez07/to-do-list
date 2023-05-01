@@ -2,21 +2,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="studentlabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="studentlabel">To-Do list</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
-                            <p class="text-uppercase text-dark fw-bold fs-5">titlle:</p>
-                            <p class="text-capitalize text-dark fw-semibold fs-6" id="titlle"></p>
+                            <p class="text-uppercase text-dark fw-bold fs-5">title:</p>
+                            <p class="text-capitalize text-dark fw-semibold fs-6" id="title"></p>
                         </div>
                         <div class="col-lg-12 col-md-12">
                             <p class="text-uppercase text-dark fw-bold fs-5">task:</p>
                             <p class="text-capitalize text-dark fw-semibold fs-6" id="task"></p>
                         </div>
-                      
                     </div>
                 </div>
             </div>
@@ -24,21 +23,12 @@
     </div>
 </div>
 
-
-
-
-
-
 <script>
     function openmodal(title, task) {
-        document.getElementById('titlle').innerHTML = titlle;
+        document.getElementById('title').innerHTML = title;
         document.getElementById('task').innerHTML = task;
         $('#exampleModal1').modal('show')
-
     }
-
-
-
 
     function alert_msg() {
         if (window.confirm("Are You Sure , You Want To `DELETE` This Record")) {
@@ -46,17 +36,11 @@
         } else {
             return false;
         }
-
-
-
     }
 </script>
 
 <?php
-
-
 //pagination logics started
-
 $sql_query = "SELECT * FROM note";
 $sql_result = $conn->query($sql_query);
 
@@ -65,51 +49,43 @@ $number_of_result = $sql_result->num_rows;
 
 $number_of_pages = ceil($number_of_result / $result_per_page);
 
-
-
-
 if (!isset($_GET['pages'])) {
     $pages = 1;
 } else {
     $pages = $_GET['pages'];
 }
-$page_num = ($pages - 1) * $result_per_page; //set a number limmit output of this query is 0
-
+$page_num = ($pages - 1) * $result_per_page; //set a number limit output of this query is 0
 
 //pagination logic end only limit keyword added to the query
-
 $sql_query = "SELECT * FROM note LIMIT " . $page_num . ',' . $result_per_page;
 $sql_result = $conn->query($sql_query);
 
-    echo '
+echo '
     <table class="notes-table">
-    <thead>
-    <tr>
-        <th style="width: 5%;" class="ps-1">SR.NO</th>
-        <th style="width: 25%;">TITLLE</th>
-        <th style="width: 50%;"colspan = 2>TASKS</th>
-        <th style="width: 20%;" colspan=3>ACTIONS</th>
-
-    </tr>
-    </thead>
-
-
-                    <tbody>';
+        <thead>
+            <tr>
+                <th style="width: 5%;" class="ps-1">SR.NO</th>
+                <th style="width: 10%;">TITLE</th>
+                <th style="width: 60%;" colspan="2">TASKS</th>
+                <th style="width: 25%;" colspan="3">ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>';
 
 
     if ($sql_result->num_rows > 0) {
         while ($row = $sql_result->fetch_assoc()) {
             echo '<tr>';
             echo '<td>' . $row['id'] . '</td>';
-            echo '<td>' . $row['TITLLE'] . '</td>';
-            echo '<td>' . $row['TASK'] . '</td>';
-            echo '<td>' . $row['DATE_'] . '</td>';
-            echo '<td class="text-center"><span class = "veiw-text" onClick= "openmodal(\'' . $row['TITLLE'] . '\',\'' . $row['TASK'] . '\')"><span class= "veiw"><i class="fa-solid fa-eye "></i></span>view</span></td>';
+            echo '<td class ="task-ellipsis">' . $row['TITLLE'] . '</td>';
+            echo '<td class = "task task-ellipsis">' . $row['TASK'] . '</td>';
+            echo '<td class = "date">' . $row['DATE_'] . '</td>';
+            echo '<td class="text-center links"><span class = "veiw-text" onClick= "openmodal(\'' . $row['TITLLE'] . '\',\'' . $row['TASK'] . '\')"><span class= "veiw"><i class="fa-solid fa-eye"></i></span>view</span></td>';
             
-            echo '<td><a href = "delete.php?id=' . $row['id'] . '" onClick = "return alert_msg()">delete</a></td>';
+            echo '<td><a href = "delete.php?id=' . $row['id'] . '" onClick = "return alert_msg()"><span><i class="fa-solid fa-trash"></i></span>delete</a></td>';
 
             echo '<td><a href="update.php?id=' . $row['id'] . '&sn=' . $row['TITLLE'] .
-                '&st=' . $row['TASK'] .'">updated</a></td>';
+                '&st=' . $row['TASK'] .'"><span><i class="fa-sharp fa-solid fa-pen-to-square"></i></span>updated</a></td>';
 
 
             echo '</tr>';
@@ -120,7 +96,7 @@ $sql_result = $conn->query($sql_query);
         echo "No rows found";
     }
 
-    echo '</tbody></table></div></div>';
+    echo '</tbody></table>';
 
 
 
