@@ -4,7 +4,7 @@
 
 }
 .headind{
-    height: 40vh;
+    height: 20vh;
     width: auto;
     display: flex;
     justify-content: center;
@@ -17,10 +17,13 @@
 }
 table ,th ,td{
     border: 1.7px solid black;
-    padding-left: 20px;
+
    
 }
-th , td{
+td{
+  padding-left: 15px;
+}
+th {
   caret-color: transparent;
   text-align: center;
 }
@@ -32,7 +35,7 @@ a{
 }
 .content-t{
     border: 1px solid rgb(191, 185, 185);
-   min-height: 70vh;
+   min-height: 60vh;
    margin: 0 20px 50px;
    box-shadow: -6px -6px 20px #e9e6e6d5;
    padding: 20px;
@@ -64,7 +67,24 @@ a{
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .button{
+    background: linear-gradient( #bababa , #373737 );
+    color: white;
+}
+#scroll{
+  border-radius: 50%;
+  padding: 6px 13px;
+  background-color: #524f4f;
+  color: orange;
+  font-size: 25px;
+  float: right;
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 23px;
+
   
+}
   
   @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)} 
@@ -94,4 +114,13 @@ a{
 }
 .add-note{
  margin: 20px;
+}
+@media screen and (max-width: 768px) {
+body{
+  background: black;
+    color: white !important;
+}
+.text-notes{
+  color: white !important;
+}
 }

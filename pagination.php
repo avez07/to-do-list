@@ -44,7 +44,7 @@
 $sql_query = "SELECT * FROM note";
 $sql_result = $conn->query($sql_query);
 
-$result_per_page = 20;
+$result_per_page = 12;
 $number_of_result = $sql_result->num_rows;
 
 $number_of_pages = ceil($number_of_result / $result_per_page);
@@ -134,7 +134,6 @@ echo '</ul>
                   ';
 
 
-$conn->close();
 
 
 ?>

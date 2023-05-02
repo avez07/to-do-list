@@ -12,38 +12,59 @@
 </head>
 <body>
    <section class="head ">
-    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-          <a class="navbar-brand fw-bolder fs-3" href="#">To-Do List</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="add-todo.php"><button type="button" class="btn btn-primary">ADD NOTE</button></a>
-              </li>
-              
-            </ul>
-           
+          <div class="d-flex justify-content-between mx-3 my-4">
+          <p class="fs-3 fw-bolder">To-Do List</p>
+         <a class="nav-link active d-none d-sm-inline" aria-current="page" href="add-todo.php"><button type="button" class="btn btn-primary">ADD NOTE</button></a>
+      
           </div>
-        </div>
-      </nav>
+          </div>
+        
    </section> 
    <section class="headind">
     <div class="headline">
-        <p class="text-uppercase text-dark fs-1 fw-bolder">all notes</p>
+        <p class="text-uppercase text-dark fs-1 fw-bolder text-notes">all notes</p>
     </div>
    </section>
    <section class="notes">
-    <div class="container-fluid content-t">
+    <div class="container-fluid content-t d-none d-md-block">
        <?php
        include "pagination.php"
        ?>
     </div>
+    <div class="container-fluid p-0 d-block d-md-none">
+    <?php
+       include "mobile.php"
+       ?>
+    </div>
+
   
    </section>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script>
+    // Create a media query
+var mediaQuery = window.matchMedia('(max-width: 600px)');
+
+// Define the function to be executed when the media query matches
+function handleMobileChange(mobile) {
+  if(mobile) {
+    // Code for mobile devices
+    console.log('Mobile device detected');
+  } else {
+    // Code for tablets and desktops
+    console.log('Tablet or desktop device detected');
+  }
+}
+
+// Call the function on page load
+handleMobileChange(mediaQuery.matches);
+
+// Add a listener to execute the function when the media query matches
+mediaQuery.addListener(function(e) {
+  handleMobileChange(e.matches);
+});
+
+   </script>
 </body>
 </html>
