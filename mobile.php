@@ -15,6 +15,7 @@
 </script>
 
 <?php
+include "config.php";
 
 $sql_query = "SELECT * FROM note";
 $sql_result = $conn->query($sql_query);

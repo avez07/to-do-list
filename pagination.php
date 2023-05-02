@@ -134,6 +134,7 @@ echo '</ul>
                   ';
 
 
+                  $conn->close();
 
 
 ?>
