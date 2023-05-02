@@ -31,6 +31,13 @@ $si = $_GET['st'];
             return false;
         }
     }
+    function alert_msg_2() {
+        if (window.confirm("Are You Sure , You Want To `DELETE` This Record")) {
+            alert("After `DELETE` You Cannot Undo");
+        } else {
+            return false;
+        }
+    }
 </script>
 
 <section>
@@ -52,6 +59,10 @@ $si = $_GET['st'];
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php
+      echo '<a href = "delete.php?id=' .$id. '" class="d-inline d-md-none" onClick = "return alert_msg_2()">  <button type="button" class="btn btn-danger">Delete</button></a>'
+        ?>
+
     </form>
 </section>
 <?php

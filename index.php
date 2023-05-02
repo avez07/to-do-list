@@ -32,7 +32,7 @@
        include "pagination.php"
        ?>
     </div>
-    <div class="container-fluid p-0 d-block d-md-none">
+    <div class="container-fluid p-0 d-block d-md-none mb-5">
     <?php
        include "mobile.php"
        ?>

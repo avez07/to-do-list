@@ -7,10 +7,15 @@
             return false;
         }
     }
+   
+    function redirect(){
+            window.location.href = "/all-my-projects/to-do-list/add-todo.php";
+        }
+      
 </script>
 
 <?php
-//pagination logics started
+
 $sql_query = "SELECT * FROM note";
 $sql_result = $conn->query($sql_query);
 
@@ -53,11 +58,4 @@ $conn->close();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-    <script>
-        function redirect(){
-            window.location.href = "/all-my-projects/to-do-list/add-todo.php";
-        }
-        function update(){
-            window.location.href = "/all-my-projects/to-do-list/update.php";
-        }
-    </script>
+   

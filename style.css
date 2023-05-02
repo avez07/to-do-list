@@ -68,7 +68,7 @@ a{
     white-space: nowrap;
   }
   .button{
-    background: linear-gradient( #bababa , #373737 );
+    background: linear-gradient( #939393 , #4e4e4e );
     color: white;
 }
 #scroll{
@@ -123,4 +123,19 @@ body{
 .text-notes{
   color: white !important;
 }
+.text-note {
+  height: 50vh;
+  width: 89vw;
+  resize: none;
+  outline: none !important;
+}
+#titlle , #notes{
+  color: white;
+    background: #242323;
+    border: 1.5px solid #4c4949;
+}
+#titlle::placeholder , #notes::placeholder{
+  color: rgb(152, 152, 152);
+}
+
 }
