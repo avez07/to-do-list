@@ -19,16 +19,9 @@ include "config.php";
 
 $sql_query = "SELECT * FROM note";
 $sql_result = $conn->query($sql_query);
-
-
-
-
-
-
-
     if ($sql_result->num_rows > 0) {
         while ($row = $sql_result->fetch_assoc()) {
-          echo '<a href = update.php?id=' . $row['id'] . '&sn=' . $row['TITLLE'] .
+          echo '<a href = "update.php?id=' . $row['id'] . '&sn=' . $row['TITLLE'] .
           '&st=' . $row['TASK'] .'"><div class="button d-flex justify-content-between px-3 py-0">
           <p class="my-2">' . $row['TITLLE'] . '</p>
           <p class="my-2">' . $row['DATE_'] . '</p>
